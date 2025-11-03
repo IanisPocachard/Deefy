@@ -92,7 +92,7 @@ class Dispatcher {
             if (isset($user['role']) && (int)$user['role'] === 100) {
                 $stmt = $repo->findAllPlaylists();
             } else {
-                $stmt = $repo->findPlaylistsByUserId($user['id']);
+                $stmt = $repo->findPlaylistsByUserId((int)$user['id']);
             }
             $playlists = $stmt;
 

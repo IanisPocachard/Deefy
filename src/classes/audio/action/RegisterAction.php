@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 namespace iutnc\deefy\audio\action;
-require_once __DIR__ . '\..\..\..\../vendor/autoload.php';
+require_once __DIR__ . '/../../../../vendor/autoload.php';
 
 use iutnc\deefy\auth\AuthnProvider;
 use iutnc\deefy\auth\AuthnException;

@@ -28,7 +28,7 @@ class AuthnProvider {
         $pdo = $repo->getPDO(); // Récupère le PDO via le getter
 
         // Cherche l'utilisateur dans la table user
-        $stmt = $pdo->prepare("SELECT * FROM User WHERE email = ?");
+        $stmt = $pdo->prepare("SELECT * FROM user WHERE email = ?");
         $stmt->execute([$email]);
         $user = $stmt->fetch();
         // Si pas trouvé alors erreur
@@ -46,7 +46,7 @@ class AuthnProvider {
         $pdo = $repo->getPDO(); // Récupère le PDO via le getter
 
         // Vérifie si l'utilisateur existe déjà
-        $stmt = $pdo->prepare("SELECT id FROM User WHERE email = ?");
+        $stmt = $pdo->prepare("SELECT id FROM user WHERE email = ?");
         $stmt->execute([$email]);
         if ($stmt->fetch()) {
             throw new AuthnException("Un compte existe déjà avec cet email !");
@@ -61,7 +61,7 @@ class AuthnProvider {
         $hash = password_hash($password, PASSWORD_BCRYPT);
 
         // Insère l'utilisateur
-        $stmt = $pdo->prepare("INSERT INTO User (email, passwd, role) VALUES (?, ?, 1)");
+        $stmt = $pdo->prepare("INSERT INTO user (email, passwd, role) VALUES (?, ?, 1)");
         $stmt->execute([$email, $hash]);
 
         return (int)$pdo->lastInsertId();

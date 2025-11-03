@@ -1,0 +1,3 @@
+RewriteRule ^sql(/.*|)$ - [NC,F]   # interdit l'accès à deefy/sql
+RewriteRule ^src(/.*|)$ - [NC,F]   # interdit l'accès à deefy/src (il ne doit pas contenir index.php
+RewriteRule \.ini$ - [NC,F]   # interdit l'accès à tous les fichiers .ini
