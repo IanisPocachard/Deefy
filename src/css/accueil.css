@@ -1,0 +1,20 @@
+nav {
+    font-size: 2em;
+}
+
+nav > a {
+    margin: 2em 1.5em 1.5em;
+}
+
+nav > a:first-child {
+    background-color: darkblue;
+}
+
+nav > a:last-child {
+    background-color: rgb(168, 39, 1);
+}
+
+nav > a:hover {
+    transform: scale(1.1);
+    background-color: black;
+}
